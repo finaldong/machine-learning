@@ -4,12 +4,10 @@
 #include<memory>
 #include"matrix.h"
 #include<functional>
-struct data{
-    shared_ptr<vector<matrix>> X;
-    shared_ptr<vector<string>> Y;
-    data():X(new vector<matrix>),Y(new vector<string>){}
-    data(ifstream&,int);
-    data sub(function<bool(size_t)>);
+struct Data{
+    vector<matrix> X;
+    vector<string> Y;
+    Data(ifstream&);
 };
 
 #endif // DATA_H_INCLUDED

@@ -12,7 +12,7 @@ struct perceptron{
     double b=0;
     double learn_rate=0.05;
     int max_iterations=10000;
-    perceptron(const data&);
+    perceptron(const Data&);
     virtual ~perceptron() = default;
     virtual int sign(const matrix&);
     void train();

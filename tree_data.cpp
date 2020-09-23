@@ -5,6 +5,15 @@
 #include<math.h>
 #include"tree_data.h"
 using namespace std;
+void discrete_data::build_map(){
+    size_t cnt=0;
+    for(auto &c:db)
+    {
+        auto &d=*(c.end()-1);
+        if(labelId.count(d)==0)
+            labelId[d]=cnt++;
+    }
+}
 tree_data::tree_data(ifstream&is){
     string line;
     int build_flag=1;

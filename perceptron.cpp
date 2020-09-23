@@ -1,7 +1,7 @@
 #include<random>
 #include<ctime>
 #include"perceptron.h"
-perceptron::perceptron(const data& d):X(d.X),Y(d.Y),w((*X)[0].row,1){
+perceptron::perceptron(const Data& d):X(new vector<matrix>(d.X)),Y(new vector<string>(d.Y)),w((*X)[0].row,1){
     int l=Y->size();
     int number[2]={1,-1};
     int k=0;
