@@ -4,7 +4,7 @@
 #include<memory>
 using namespace std;
 struct NaiveBayes{
-    shared_ptr<discrete_data> dataPoint;
+    shared_ptr<DiscreteData> dataPoint;
     vector<map<string,double>> theta;//每个随机变量的参数
     vector<double>priori;//先验分布
     void learn();

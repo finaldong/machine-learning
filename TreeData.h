@@ -6,25 +6,20 @@
 #include<fstream>
 #include<functional>
 #include"matrix.h"
-struct discrete_data{
-    vector<vector<string>> db;//离散数据的普遍形式，默认最后一列是类标
-    map<string,size_t> labelId;
-    size_t getId(string&s){
-        if(labelId.count(s)!=0)
-            return labelId[s];
-    }
-    void build_map(); //生成类标向索引的映射
+struct DiscreteData{
+    vector<vector<string>> db;//离散数据块,默认最后一行代表类别的取值
+    map<string,size_t> labelId;//将类别映射成数字id
+    size_t getId(string&s){return labelId[s];}
+    void buildMap();
 };
-struct tree_data:discrete_data{
+struct TreeData:DiscreteData{
 
-    vector<string> feature_name;
-    string label_name;
-
-    map<string,size_t> feature_id;
-    size_t label_id;
-
-    tree_data(ifstream&);//从输入数据构建
-    string get_label(size_t i){return db[i][label_id];}
+    vector<string> featureName;
+    map<string,size_t> featureIndex;
+    string labelName;
+    size_t labelIndex;
+    TreeData(ifstream&);//从输入数据构建
+    string getLabel(size_t i){return db[i][labelIndex];}
 };
 
 #endif // TREE_DATA_H_INCLUDED

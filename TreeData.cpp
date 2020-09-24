@@ -5,7 +5,7 @@
 #include<math.h>
 #include"TreeData.h"
 using namespace std;
-void discrete_data::build_map(){
+void DiscreteData::buildMap(){
     size_t cnt=0;
     for(auto &c:db)
     {
@@ -14,31 +14,30 @@ void discrete_data::build_map(){
             labelId[d]=cnt++;
     }
 }
-tree_data::tree_data(ifstream&is){
+TreeData::TreeData(ifstream&file){
     string line;
-    int build_flag=1;
-    while (getline(is,line)){
-        istringstream s(line);
-        string attributes;
-        vector<string> sample;
-        int cnt=0;
-        while(s>>attributes){
-            if(build_flag==1)
-                {
-                    feature_name.push_back(attributes);
-                    feature_id[attributes]=cnt++;
-                }
-            else
-                sample.push_back(attributes);
-        }
-        if(build_flag==0)
-            db.push_back(sample);
-        build_flag=0;
+    //默认第一行是特征的名字和类别的名字
+    getline(file,line);
+    istringstream lineStream(line);
+    string temp;
+    int cnt=0;
+    while(lineStream>>temp)
+    {
+        featureName.push_back(temp);
+        featureIndex[temp]=cnt++;
     }
-    label_name=*(feature_name.end()-1);
-    feature_name.pop_back();
-
-    label_id=feature_id[label_name];
-    feature_id.erase(label_name);
+    labelName=*(featureName.end()-1);
+    featureName.pop_back();
+    labelIndex=featureIndex[labelName];
+    featureIndex.erase(labelName);
+    //开始读入数据
+    while (getline(file,line)){
+        istringstream dataLineStream(line);
+        vector<string> sample;
+        while(dataLineStream>>temp){
+            sample.push_back(temp);
+        }
+        db.push_back(sample);
+    }
 }
 

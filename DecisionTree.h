@@ -3,24 +3,21 @@
 #include<set>
 #include<map>
 #include"TreeData.h"
-struct decision_tree{
-    shared_ptr<tree_data> _data;
+struct DecisionTree{
+    shared_ptr<TreeData> DataPointer;
 
-    double tree_entropy;
+    double treeEntropy;
     size_t _beg,_end;//子树的数据用起始结束下标来表示
-    string feature;//选择的特征
-    string feature_value;//特征取值
-    string label;//代表的类值
-    vector<shared_ptr<decision_tree>> child_list;//子树列表
-
-    decision_tree(ifstream&is):_data(new tree_data(is)),_beg(0),_end(_data->db.size()){}
-    decision_tree(const decision_tree&dt,size_t a,size_t b):_data(dt._data),_beg(a),_end(b){}
-    pair<double,bool> entropy();
-    double conditional_entropy(const string&);
+    string featureSelect;//选择的特征
+    string featureValue;//特征取值
+    string labelValue;//代表的类值
+    vector<shared_ptr<DecisionTree>> childList;//子树列表
+    DecisionTree(const TreeData&p):DataPointer(new TreeData(p)),_beg(0),_end(p->db.size()){}//由于序列重构不支持直接传入
+    DecisionTree(const DecisionTree&father,size_t a,size_t b):DataPointer(father.DataPointer),_beg(a),_end(b){}
+    pair<double,bool> calEntropyAndisOneLabel();//计算节点熵并标记类别数最大的类别,第二个返回值说明是否只有一类
+    double conditionalEntropy(const string&);
     void build(const set<string>&);
-    string predict(const vector<string>&,shared_ptr<decision_tree>);
-    void printf_tree();
-
+    string predict(const vector<string>&);
 };
 
 
