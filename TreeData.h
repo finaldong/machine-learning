@@ -11,7 +11,7 @@ struct discrete_data{
     map<string,size_t> labelId;
     size_t getId(string&s){
         if(labelId.count(s)!=0)
-        return labelId[s];
+            return labelId[s];
     }
     void build_map(); //生成类标向索引的映射
 };

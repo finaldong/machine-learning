@@ -1,6 +1,6 @@
 #include<algorithm>
 #include<iostream>
-#include"decision_tree.h"
+#include"DecisionTree.h"
 void decision_tree::build(const set<string>& A){
     auto res=entropy();//计算该节点属于的类别以及条件熵
     tree_entropy=res.first;

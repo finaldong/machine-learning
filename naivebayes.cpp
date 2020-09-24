@@ -1,4 +1,4 @@
-#include"naivebayes.h"
+#include"NaiveBayes.h"
 void NaiveBayes::learn(){
     int labelNums=dataPoint->labelId.size();
     for(int i=0;i<labelNums;i++){//空间预分配
@@ -18,7 +18,7 @@ void NaiveBayes::learn(){
                 (res.first->second)+=1.0;
         }
     }
-    for(int i=0;i<theta.size();i++)
+    for(size_t i=0;i<theta.size();i++)
     {
         for(auto &d:theta[i])
         {

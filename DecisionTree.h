@@ -2,7 +2,7 @@
 #define DECISION_TREE_H_INCLUDED
 #include<set>
 #include<map>
-#include"tree_data.h"
+#include"TreeData.h"
 struct decision_tree{
     shared_ptr<tree_data> _data;
 

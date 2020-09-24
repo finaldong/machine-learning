@@ -1,6 +1,6 @@
 #ifndef NAIVEBAYES_H_INCLUDED
 #define NAIVEBAYES_H_INCLUDED
-#include"tree_data.h"
+#include"TreeData.h"
 #include<memory>
 using namespace std;
 struct NaiveBayes{

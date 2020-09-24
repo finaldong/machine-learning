@@ -3,7 +3,7 @@
 #include<fstream>
 #include<map>
 #include<math.h>
-#include"tree_data.h"
+#include"TreeData.h"
 using namespace std;
 void discrete_data::build_map(){
     size_t cnt=0;
