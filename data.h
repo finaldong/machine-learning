@@ -12,5 +12,9 @@ struct Data{
     string getLabelName(size_t i){return labelName[i];}
     Data(ifstream&);
 };
+struct RegressData{
+    vector<matrix> X;
+    vector<double> Y;
+};
 
 #endif // DATA_H_INCLUDED
