@@ -6,12 +6,12 @@
 #include"Data.h"
 using namespace std;
 Data::Data(ifstream&file):X(),Y(){
-    const int featureNums=4;//需要修改成合适的
+    const int featureNums=4;//闇�瑕佷慨鏀规垚鍚堥�傜殑
     string line;
     while (getline(file,line)){
         istringstream LineStream(line);
         double temp;
-        matrix sample;//默认每个样本是行向量
+        matrix sample;//榛樿姣忎釜鏍锋湰鏄鍚戦噺
         sample.col=1;
         sample.row=0;
         while(sample.row<=featureNums&&(LineStream>>temp)){
