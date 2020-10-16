@@ -5,8 +5,8 @@
 using namespace std;
 struct NaiveBayes{
     shared_ptr<DiscreteData> dataPoint;
-    vector<map<string,double>> theta;//Ã¿¸öËæ»ú±äÁ¿µÄ²ÎÊı
-    vector<double>priori;//ÏÈÑé·Ö²¼
+    vector<map<string,double>> theta;//æ¯ä¸ªéšæœºå˜é‡çš„å‚æ•°
+    vector<double>priori;//å…ˆéªŒåˆ†å¸ƒ
     void learn();
     string predict();
 };
