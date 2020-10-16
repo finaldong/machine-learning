@@ -10,8 +10,8 @@ struct Perceptron{
     double b=0;
     double learnRate=0.05;
     int maxIterations=10000;
-    Perceptron(shared_ptr<Data> p):DataPointer(p),w(p->X[0].row,1){};//ÍÆ¼öÊ¹ÓÃÖ¸Õë´«Èë¹²ÏíÊı¾İ
-    Perceptron(const Data&);//²»ÍÆ¼ö¿½±´¹¹ÔìÊı¾İ
+    Perceptron(shared_ptr<Data> p):DataPointer(p),w(p->X[0].row,1){};//æ¨èä½¿ç”¨æŒ‡é’ˆä¼ å…¥å…±äº«æ•°æ®
+    Perceptron(const Data&);//ä¸æ¨èæ‹·è´æ„é€ æ•°æ®
     int sign(const matrix&);
     void train();
     string predict(const matrix&);
